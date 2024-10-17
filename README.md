@@ -1,58 +1,49 @@
-Here's the `README.md` for your Parking Management App in English:
-
----
-
 # Parking Management App
+---
+A web application for managing parkings, created with Laravel. This app allows users to create, view, update, and delete parking records, including the ability to upload and update images stored in Base64 format and show the ubication of the car in a map using LeafletJS.
 
-A web application for managing parkings, created with Laravel. This app allows users to create, view, update, and delete parking records, including the ability to upload and update images stored in Base64 format.
+![Img app](/public/images/app.png)
 
-## Table of Contents
-
-- [Parking Management App](#parking-management-app)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Technologies Used](#technologies-used)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-  - [Usage](#usage)
-  - [Project Structure](#project-structure)
-  - [Contributing](#contributing)
-  - [License](#license)
-
-## Features
+## Features 💫
 
 - **CRUD Operations for Parkings**: Create, view, update, and delete parking records.
 - **Image Management**: Upload and update parking images, stored in the database as Base64.
 - **User-Friendly Interface**: Clean and easy-to-use UI with a responsive design.
 
-## Technologies Used
+## Technologies 👨🏾‍💻
 
-- **Backend**: Laravel 9.x
-- **Frontend**: HTML, CSS, Bootstrap 5.x
+- **Backend**: Laravel 11, PHP 8
+![Static Badge](https://img.shields.io/badge/LARAVEL-FF0000?style=for-the-badge&logo=laravel&logoColor=laravel&labelColor=black)
+![Static Badge](https://img.shields.io/badge/PHP-595c87?style=for-the-badge&logo=php&logoColor=laravel&labelColor=black)
+  
+- **Frontend**: HTML5, CSS, JS
+![Static Badge](https://img.shields.io/badge/HTML5-F80?style=for-the-badge&logo=html5&logoColor=F80&labelColor=black)
+![Static Badge](https://img.shields.io/badge/CSS-0000FF?style=for-the-badge&logo=css3&logoColor=blue&labelColor=black)
+![Static Badge](https://img.shields.io/badge/javascript-f7df1e?style=for-the-badge&logo=javascript&logoColor=dark&labelColor=black)
+
 - **Database**: MySQL
+![Static Badge](https://img.shields.io/badge/MYSQL-C7A20F?style=for-the-badge&logo=mysql&logoColor=yellow&labelColor=black)
+  
 - **ORM**: Eloquent (Laravel)
-- **Dependencies**: jQuery, Bootstrap, Laravel Mix
+![Static Badge](https://img.shields.io/badge/ELOQUENT-FF0000?style=for-the-badge&logo=laravel&logoColor=laravel&labelColor=black)
 
-## Requirements
+- **Dependencies**: Bootstrap, Leaflet. Node Js
+![Static Badge](https://img.shields.io/badge/BOOTSTRAP-7952b3?style=for-the-badge&logo=bootstrap&logoColor=dark&labelColor=black)
+![Static Badge](https://img.shields.io/badge/LEAFLET-ofo?style=for-the-badge&logo=leaflet&logoColor=0f0&labelColor=black)
+![Static Badge](https://img.shields.io/badge/NODE_JS-5fa04e?style=for-the-badge&logo=node.js&logoColor=5fa04e&labelColor=black&color=5fa04e)
 
-- PHP >= 8.0
-- Composer
-- MySQL
-- PHP Extensions: `fileinfo`, `mbstring`, `openssl`, `pdo`, `tokenizer`, `xml`
-- Node.js and npm (for compiling CSS/JS files using Laravel Mix)
 
-## Installation
+## Installation ⚙️
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/mansulol/Lomotor-V2.git
-    cd Lomotor-V2
+    git clone git@github.com:mansulol/Parking-app.git
+    cd Parking-app
     ```
 
 2. Install Composer dependencies:
     ```bash
-    composer install
+    composer require laravel/installer
     ```
 
 3. Install npm dependencies:
@@ -60,22 +51,7 @@ A web application for managing parkings, created with Laravel. This app allows u
     npm install
     ```
 
-4. Compile the assets:
-    ```bash
-    npm run dev
-    ```
-
-5. Set up your `.env` file:
-    ```bash
-    cp .env.example .env
-    ```
-
-6. Generate the application key:
-    ```bash
-    php artisan key:generate
-    ```
-
-7. Configure the database in the `.env` file:
+4. Configure the database in the `.env` file:
     ```env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -85,17 +61,17 @@ A web application for managing parkings, created with Laravel. This app allows u
     DB_PASSWORD=your_password
     ```
 
-8. Run database migrations:
+5. Run database migrations:
     ```bash
     php artisan migrate
     ```
 
-## Configuration
+6. Test with database seeds
+   ```bash
+    php artisan bd:seed --class=CarsTableSeeder
+    ```
 
-- Make sure to enable the `fileinfo` PHP extension.
-- Images are stored in the `picture` column of the `cars` table as Base64 encoded strings.
-
-## Usage
+## Usage 🕹️
 
 1. **Home**:
    - Access the main page to view the list of parkings.
@@ -105,58 +81,22 @@ A web application for managing parkings, created with Laravel. This app allows u
    - Select a record from the list to update its information. You can update the image by uploading a new one.
 4. **Delete a Parking**:
    - Click the delete button to remove a record from the list.
+5. **Car info**
+    - Click in the card/img card to get the info of the car and its location
 
-## Project Structure
+## Author ✒️
 
-```plaintext
-Lomotor-V2/
-│
-├── app/
-│   ├── Http/
-│   │   └── Controllers/
-│   │       └── CarsController.php
-│   └── Models/
-│       └── Cars.php
-│
-├── resources/
-│   └── views/
-│       ├── cars/
-│       │   ├── create.blade.php
-│       │   ├── edit.blade.php
-│       │   ├── index.blade.php
-│       │   └── show.blade.php
-│       └── layouts/
-│           └── app.blade.php
-│
-├── public/
-│   ├── css/
-│   └── js/
-│
-├── routes/
-│   └── web.php
-│
-├── database/
-│   └── migrations/
-│
-├── .env
-├── composer.json
-└── package.json
-```
+- **Mansour**
 
-## Contributing
+## Licencia 📄
 
-Contributions are welcome! Feel free to submit pull requests or open issues with suggestions for improvements.
+No license
 
-1. Fork the project.
-2. Create a branch for your feature (`git checkout -b feature/new-feature`).
-3. Commit your changes (`git commit -m 'Add new feature'`).
-4. Push your branch (`git push origin feature/new-feature`).
-5. Open a Pull Request.
+## Thanks 🎁
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Thanks to my teacher [Tiburcio](https://github.com/tcrurav) for this experience
+- Thanks to all my classmate
+- Thanks to [Villanuevand](https://github.com/Villanuevand) for the template of this readme
 
 ---
-
-This `README.md` provides a clear and comprehensive guide to your app, along with instructions on how to install and use the project. Feel free to modify it as needed to suit your specific implementation.
+⌨️ with ❤️ by Mansour

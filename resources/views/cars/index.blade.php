@@ -25,7 +25,9 @@
         @foreach ($cars as $car)
             <div class="card text-center mb-3">
                 <div class="img-container">
-                    <img class="img-card" src="{{ $car->picture }}" alt="Img card">
+                    <a href="{{ route('cars.show', $car->id) }}">
+                        <img class="img-card" src="{{ $car->picture }}" alt="Img card">
+                    </a>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">
@@ -52,9 +54,7 @@
                 </div>
             </div>
         @endforeach
-
     </div>
-
     <script src="{{ asset('/js/index.js') }}"></script>
 </body>
 
