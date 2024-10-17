@@ -19,7 +19,8 @@ class CarsController extends Controller
         return view("cars.create");
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'name' => 'required|string|max:255',
             'ubication' => 'required|string|max:255',
@@ -43,8 +44,6 @@ class CarsController extends Controller
         return redirect()->route("cars.index")->with('success', 'Parking created successfully.');
     }
 
-
-
     public function destroy($id)
     {
         Cars::find($id)->delete();
@@ -52,42 +51,49 @@ class CarsController extends Controller
         return redirect()->route("cars.index");
     }
 
-    public function show($findCarsId)
+    public function show($id)
     {
-        $cars = Cars::find($findCarsId);
-
-        return view("cars.index", compact("cars"));
+        $car = Cars::findOrFail($id);
+        return view('cars.show', compact('car'));
     }
 
-    // Edit method para el icono de editar
+    protected function getCoordinates($address)
+    {
+        $address = urlencode($address);
+        $url = "https://nominatim.openstreetmap.org/search?q={$address}&format=json&limit=1";
 
-    // Update method para la pagina de update
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+
+        if (!empty($data) && isset($data[0]['lat'], $data[0]['lon'])) {
+            return [
+                'latitude' => $data[0]['lat'],
+                'longitude' => $data[0]['lon']
+            ];
+        }
+
+        return null;
+    }
+
     public function update(Request $request, $id)
-{
-    // Encuentra el coche por su ID
-    $car = Cars::findOrFail($id);
+    {
+        $car = Cars::findOrFail($id);
 
-    // Actualiza los campos de nombre y ubicación
-    $car->name = $request->input('name');
-    $car->ubication = $request->input('ubication');
+        $car->name = $request->input('name');
+        $car->ubication = $request->input('ubication');
 
-    // Verificar si se ha subido una nueva imagen
-    if ($request->hasFile('picture')) {
-        $image = $request->file('picture');
-        $imageData = file_get_contents($image);
-        $base64Image = 'data:' . $image->getMimeType() . ';base64,' . base64_encode($imageData);
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $imageData = file_get_contents($image);
+            $base64Image = 'data:' . $image->getMimeType() . ';base64,' . base64_encode($imageData);
 
-        // Actualizar la imagen en base64
-        $car->picture = $base64Image;
+            $car->picture = $base64Image;
+        }
+
+        $car->save();
+
+        return redirect()->route('cars.index')->with('success', 'Car updated successfully');
     }
-
-    // Guardar los cambios
-    $car->save();
-
-    return redirect()->route('cars.index')->with('success', 'Car updated successfully');
-}
-
-
 
     public function edit($id)
     {

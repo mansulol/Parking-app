@@ -31,8 +31,16 @@
 
                             <div class="mb-3">
                                 <label for="ubication" class="form-label">Ubication</label>
-                                <input type="text" class="form-control" id="ubication" name="ubication"
-                                    placeholder="Ubication of the parking">
+                                <div class="container-ubication d-flex align-items-center">
+                                    <input type="text" class="form-control" id="ubication" name="ubication"
+                                        placeholder="Ubication of the parking">
+                                    <button class="btn btn-sm ms-2 btn-ubication" type="button"
+                                        onclick="getLocation()">
+                                        <img class="img-ubication"
+                                            src="https://cdn-icons-png.flaticon.com/512/6339/6339264.png"
+                                            alt="Img ubication">
+                                    </button>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -52,7 +60,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="/js/ubication.js"></script>
 </body>
 
 </html>

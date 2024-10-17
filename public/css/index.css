@@ -51,12 +51,13 @@ body {
         align-items: center;
         gap: 1em;
         min-width: 300px;
-        max-width: 500px;
+        max-width: 400px;
         width: 30%;
+        height: 350px;
 
         .img-container {
             width: 100%;
-            height: 60%;
+            height: 80%;
 
             .img-card {
                 width: 100%;
@@ -102,9 +103,7 @@ body {
             }
         }
     }
-
 }
-
 
 .btn-create {
     width: 60px;
@@ -121,4 +120,8 @@ body {
         width: 100%;
         height: 100%;
     }
+}
+
+.btn-create:active {
+    transform: scale(0.8);
 }

@@ -10,6 +10,4 @@ use App\Http\Controllers\CarsController;
 
 Route::resource('cars', CarsController::class);
 
-Route::get('/ubication', function () {
-    return view('cars.car-ubication');
-});
+Route::get('/cars/{id}', [CarsController::class, 'show'])->name('cars.show');
