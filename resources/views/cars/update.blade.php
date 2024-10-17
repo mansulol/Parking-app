@@ -40,8 +40,7 @@
 
                 <div class="form-group mb-4">
                     <label for="picture" class="form-label">Update Image</label>
-                    <input type="file" class="form-control" id="picture" name="picture"
-                        onchange="previewNewImage(e)">
+                    <input type="file" class="form-control" id="picture" name="picture" onchange="previewNewImage(event)">
                 </div>
 
                 <div class="form-group mb-3 text-center">

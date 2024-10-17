@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Cars;
+use App\Models\Ubications;
 
 class CarsController extends Controller
 {

@@ -29,7 +29,6 @@ label {
 }
 
 .img-container img {
-    max-width: 200px;
+    max-width: 150px;
     height: auto;
-    border-radius: 10px;
 }

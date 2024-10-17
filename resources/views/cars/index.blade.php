@@ -13,10 +13,15 @@
 
 <body>
     <header class="header">
-        <img src="{{ asset('/assets/parking-app-logo.jpg') }}" alt="">
-        <h1>
-            arking app
-        </h1>
+        <div class="container-logo">
+            <img class="img-parking" src="{{ asset('/assets/parking-app-logo.jpg') }}" alt="">
+            <h1 class="title-app">
+                arking app
+            </h1>
+        </div>
+        <a class="img-globe" href="{{ route('cars.ubications') }}">
+            <img src="https://cdn-icons-png.flaticon.com/512/3870/3870936.png " alt="Img globe header">
+        </a>
     </header>
     <a href=" {{ route('cars.create') }} " class="btn-create">
         <img src="https://cdn-icons-png.flaticon.com/512/15617/15617600.png" alt="Btn create">

@@ -24,14 +24,14 @@
                         <form method="POST" action="{{ route('cars.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
+                                <label for="name" class="form-label update-title">Name</label>
                                 <input type="text" class="form-control" id="name" name="name"
                                     placeholder="Name of the parking">
                             </div>
 
                             <div class="mb-3">
-                                <label for="ubication" class="form-label">Ubication</label>
-                                <div class="container-ubication d-flex align-items-center">
+                                <label for="ubication" class="form-label update-title">Ubication</label>
+                                <div class="d-flex align-items-center">
                                     <input type="text" class="form-control" id="ubication" name="ubication"
                                         placeholder="Ubication of the parking">
                                     <button class="btn btn-sm ms-2 btn-ubication" type="button"
@@ -44,8 +44,16 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="picture" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="picture" name="picture">
+                                <label for="picture" class="form-label update-title">Image</label>
+                                <input type="file" class="form-control" id="picture" name="picture"
+                                    onchange="previewImageCreatePage(event)">
+                            </div>
+
+                            <div class="form-group mb-3 text-center">
+
+                                <div class="img-container" id="newImageContainer" style="display: none;">
+                                    <img id="newImagePreview" src="#" alt="New Parking Image">
+                                </div>
                             </div>
 
                             <div class="d-grid gap-2">
@@ -59,8 +67,21 @@
             </div>
         </div>
     </div>
-
-    <script src="/js/ubication.js"></script>
+    <script src="{{ asset('/js/ubication.js') }}"></script>
+    <script>
+        function previewImageCreatePage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newImagePreview = document.getElementById("newImagePreview");
+                    newImagePreview.src = e.target.result;
+                    document.getElementById("newImageContainer").style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </body>
 
 </html>

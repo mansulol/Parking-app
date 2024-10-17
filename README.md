@@ -68,7 +68,9 @@ A web application for managing parkings, created with Laravel. This app allows u
 
 6. Test with database seeds
    ```bash
-    php artisan bd:seed --class=CarsTableSeeder
+    php artisan db:seed --class=CarsTableSeeder
+    
+    php artisan db:seed --class=UbicationsTableSeeder
     ```
 
 ## Usage 🕹️
