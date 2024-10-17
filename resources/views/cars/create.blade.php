@@ -25,12 +25,14 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name of the parking">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Name of the parking">
                             </div>
 
                             <div class="mb-3">
                                 <label for="ubication" class="form-label">Ubication</label>
-                                <input type="text" class="form-control" id="ubication" name="ubication" placeholder="Ubication of the parking">
+                                <input type="text" class="form-control" id="ubication" name="ubication"
+                                    placeholder="Ubication of the parking">
                             </div>
 
                             <div class="mb-3">

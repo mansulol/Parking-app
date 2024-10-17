@@ -17,7 +17,7 @@
         <h1 class="text-center mb-4 fs-1 fw-bold update-title">Update Parking</h1>
 
         <div class="card p-4 shadow-sm">
-            <form method="POST" action="{{ route('cars.update', $car->id) }}">
+            <form method="POST" action="{{ route('cars.update', $car->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

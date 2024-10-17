@@ -44,7 +44,6 @@
 
                         <form class="index-form" action="{{ route('cars.edit', $car->id) }}">
                             <button class="icon-card" type="submit">
-                                {{-- Btn de editar --}}
                                 <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png " alt="img edit">
                             </button>
                         </form>
